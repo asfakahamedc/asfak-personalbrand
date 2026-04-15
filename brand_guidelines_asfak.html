@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Guidelines — Asfak Ahamed Chowdhury</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:             #0C0B09;
+    --surface:        #161411;
+    --surface-2:      #1F1C18;
+    --border:         rgba(239,229,208,0.10);
+    --border-strong:  rgba(239,229,208,0.22);
+    --text-primary:   #EFE5D0;
+    --text-secondary: rgba(239,229,208,0.62);
+    --text-tertiary:  rgba(239,229,208,0.38);
+    --accent:         #C49234;
+    --accent-muted:   rgba(196,146,52,0.14);
+    --accent-hover:   #D4A53E;
+    --semantic-success: #2A7A4B;
+    --semantic-warn:    #B05B1A;
+    --semantic-error:   #A32A2A;
+    --semantic-info:    #1A5C9A;
+    --font-display:   'Playfair Display', Georgia, serif;
+    --font-body:      'DM Sans', system-ui, sans-serif;
+    --font-mono:      'IBM Plex Mono', 'Courier New', monospace;
+    --radius-sm:  3px;
+    --radius-md:  6px;
+    --radius-lg: 12px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.035;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* ─── LAYOUT ─────────────────────────────────────────────── */
+  .page-wrapper { max-width: 960px; margin: 0 auto; padding: 0 40px 120px; }
+
+  section { padding: 80px 0; border-bottom: 1px solid var(--border); }
+  section:last-child { border-bottom: none; }
+
+  /* ─── TYPOGRAPHY UTILITIES ───────────────────────────────── */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height: 1.08; }
+
+  h1 { font-size: clamp(52px,7vw,80px); letter-spacing: -0.025em; }
+  h2 { font-size: clamp(32px,4vw,48px); letter-spacing: -0.02em; margin-bottom: 40px; }
+  h3 { font-size: 28px; letter-spacing: -0.015em; margin-bottom: 16px; }
+  h4 { font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 8px; }
+
+  p { color: var(--text-secondary); max-width: 68ch; line-height: 1.72; margin-bottom: 16px; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ─── COVER PAGE ─────────────────────────────────────────── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 80px 40px;
+    max-width: 960px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .cover-top { }
+
+  .cover-logo-mark {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 80px;
+    opacity: 0.85;
+  }
+
+  .cover-title { font-size: clamp(56px, 8vw, 96px); letter-spacing: -0.03em; line-height: 0.95; margin-bottom: 32px; }
+  .cover-title em { font-style: italic; color: var(--accent); }
+
+  .cover-meta {
+    display: flex;
+    gap: 48px;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+
+  .cover-meta-item { }
+  .cover-meta-item .label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 4px; }
+  .cover-meta-item .value { font-size: 14px; color: var(--text-secondary); }
+
+  .cover-bottom {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-tertiary);
+    letter-spacing: 0.1em;
+  }
+
+  .cover-geo-accent {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 280px;
+    height: 280px;
+    opacity: 0.06;
+  }
+
+  /* ─── TABLE OF CONTENTS ──────────────────────────────────── */
+  .toc-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+  .toc-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+  }
+  .toc-list li:last-child { border-bottom: none; }
+  .toc-list .toc-num { font-family: var(--font-mono); font-size: 11px; color: var(--accent); margin-right: 20px; }
+  .toc-list .toc-name { flex: 1; color: var(--text-primary); }
+  .toc-list .toc-page { font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); }
+
+  /* ─── CARDS / CONTAINERS ─────────────────────────────────── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 24px 28px;
+  }
+
+  .card-grid { display: grid; gap: 16px; }
+  .card-grid-2 { grid-template-columns: 1fr 1fr; }
+  .card-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .card-grid-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+  /* ─── BRAND STRATEGY ─────────────────────────────────────── */
+  .positioning-block {
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius-md);
+    padding: 32px 36px;
+    margin: 32px 0;
+  }
+  .positioning-block p {
+    font-family: var(--font-display);
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--text-primary);
+    font-style: italic;
+    max-width: none;
+    margin: 0;
+  }
+
+  .personality-tags { display: flex; gap: 10px; flex-wrap: wrap; margin: 24px 0; }
+  .personality-tag {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    padding: 6px 14px;
+    border: 1px solid var(--border-strong);
+    border-radius: 2px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+  }
+  .personality-tag.primary { border-color: var(--accent); color: var(--accent); background: var(--accent-muted); }
+
+  .star-block {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 36px;
+    margin: 24px 0;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .star-icon { opacity: 0.7; }
+
+  /* ─── COLOR SYSTEM ───────────────────────────────────────── */
+  .color-swatch {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .swatch-color { height: 80px; }
+  .swatch-info { padding: 14px 16px; background: var(--surface); }
+  .swatch-name { font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; }
+  .swatch-hex { font-family: var(--font-mono); font-size: 11px; color: var(--accent); margin-bottom: 2px; }
+  .swatch-role { font-size: 11px; color: var(--text-tertiary); }
+
+  .color-ratio-bar {
+    height: 48px;
+    display: flex;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin: 24px 0;
+    border: 1px solid var(--border);
+  }
+  .ratio-segment { display: flex; align-items: center; justify-content: center; }
+  .ratio-label { font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,0.5); }
+
+  .semantic-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px; }
+  .semantic-item { border-radius: var(--radius-sm); padding: 14px 16px; }
+  .semantic-item .sem-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
+  .semantic-item .sem-hex { font-size: 12px; font-weight: 600; }
+
+  /* ─── TYPOGRAPHY SYSTEM ──────────────────────────────────── */
+  .type-scale-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+  .type-scale-table th {
+    font-family: var(--font-mono); font-size: 10px; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--text-tertiary); padding: 8px 16px;
+    text-align: left; border-bottom: 1px solid var(--border);
+  }
+  .type-scale-table td { padding: 16px 16px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  .type-scale-table tr:last-child td { border-bottom: none; }
+  .type-scale-table .td-label { font-family: var(--font-mono); font-size: 11px; color: var(--accent); width: 80px; }
+  .type-scale-table .td-specimen { color: var(--text-primary); }
+  .type-scale-table .td-spec { font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); white-space: nowrap; }
+
+  .font-specimen-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 36px;
+    margin: 16px 0;
+  }
+  .specimen-meta { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 20px; }
+  .specimen-sample { }
+  .specimen-weights { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+
+  /* ─── MOTION LANGUAGE ────────────────────────────────────── */
+  .motion-table { width: 100%; border-collapse: collapse; }
+  .motion-table th { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-tertiary); padding: 8px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+  .motion-table td { padding: 14px 16px; border-bottom: 1px solid var(--border); font-size: 14px; vertical-align: top; }
+  .motion-table tr:last-child td { border-bottom: none; }
+  .motion-table .td-type { font-weight: 600; color: var(--text-primary); width: 180px; }
+  .motion-table .td-value { font-family: var(--font-mono); font-size: 12px; color: var(--accent); width: 160px; }
+  .motion-table .td-note { color: var(--text-secondary); font-size: 13px; }
+
+  .demo-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #0C0B09;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+    text-decoration: none;
+  }
+  .demo-button:hover { transform: translateY(-2px); background: var(--accent-hover); }
+  .demo-button:active { transform: scale(0.97); }
+
+  .demo-button.ghost {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-strong);
+  }
+  .demo-button.ghost:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-muted); }
+
+  .button-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 24px 0; }
+
+  /* ─── VOICE & TONE ───────────────────────────────────────── */
+  .voice-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+  .voice-box { padding: 20px 24px; border-radius: var(--radius-md); }
+  .voice-box.avoid { background: rgba(163,42,42,0.12); border: 1px solid rgba(163,42,42,0.3); }
+  .voice-box.use { background: rgba(42,122,75,0.12); border: 1px solid rgba(42,122,75,0.3); }
+  .voice-box .vb-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 12px; }
+  .voice-box.avoid .vb-label { color: #E07070; }
+  .voice-box.use .vb-label { color: #5DBF88; }
+  .voice-box ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .voice-box ul li { font-size: 13px; color: var(--text-secondary); padding-left: 16px; position: relative; }
+  .voice-box ul li::before { content: '—'; position: absolute; left: 0; color: var(--text-tertiary); }
+
+  .word-avoid-list { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0; }
+  .word-avoid { font-family: var(--font-mono); font-size: 12px; padding: 5px 12px; background: rgba(163,42,42,0.12); border: 1px solid rgba(163,42,42,0.3); border-radius: 2px; color: #E07070; text-decoration: line-through; }
+
+  /* ─── TECH STACK ─────────────────────────────────────────── */
+  .stack-layer {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 20px 24px;
+    display: grid;
+    grid-template-columns: 140px 1fr 180px;
+    gap: 16px;
+    align-items: start;
+    margin-bottom: 8px;
+  }
+  .stack-layer:hover { border-color: var(--border-strong); }
+  .stack-layer-name { font-weight: 600; font-size: 14px; color: var(--text-primary); }
+  .stack-layer-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+  .stack-layer-tool { font-family: var(--font-mono); font-size: 12px; color: var(--accent); text-align: right; }
+
+  /* ─── WEBSITE STRUCTURE ──────────────────────────────────── */
+  .page-map { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+  .page-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 24px;
+  }
+  .page-card .page-name { font-family: var(--font-mono); font-size: 13px; color: var(--accent); margin-bottom: 8px; font-weight: 500; }
+  .page-card .page-goal { font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
+  .page-card .page-sections { font-size: 12px; color: var(--text-secondary); line-height: 1.8; }
+
+  /* ─── IMAGERY RULES ──────────────────────────────────────── */
+  .imagery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 24px 0; }
+  .imagery-item { padding: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); }
+  .imagery-item .img-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 8px; }
+  .imagery-item .img-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+  /* ─── DO / DON'T ─────────────────────────────────────────── */
+  .rule-list { display: flex; flex-direction: column; gap: 0; }
+  .rule-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .rule-item:last-child { border-bottom: none; }
+  .rule-icon { width: 20px; height: 20px; flex-shrink: 0; margin-top: 1px; }
+  .rule-text { color: var(--text-secondary); line-height: 1.5; }
+  .rule-item.do .rule-text { color: var(--text-primary); }
+
+  /* ─── CONTENT PILLARS ────────────────────────────────────── */
+  .pillars-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+  .pillar-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px; }
+  .pillar-card .pillar-num { font-family: var(--font-mono); font-size: 11px; color: var(--accent); margin-bottom: 8px; }
+  .pillar-card .pillar-name { font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
+  .pillar-card .pillar-angle { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; }
+  .pillar-card .pillar-example { font-size: 12px; font-style: italic; color: var(--text-tertiary); border-left: 2px solid var(--accent); padding-left: 12px; margin-top: 12px; }
+
+  /* ─── DIVIDER ────────────────────────────────────────────── */
+  .divider { width: 48px; height: 2px; background: var(--accent); margin: 24px 0; border: none; }
+
+  /* ─── CALLOUT BOXES ──────────────────────────────────────── */
+  .callout {
+    background: var(--accent-muted);
+    border: 1px solid rgba(196,146,52,0.3);
+    border-radius: var(--radius-md);
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .callout p { color: var(--text-secondary); margin: 0; }
+  .callout strong { color: var(--accent); }
+
+  /* ─── ANIMATIONS ─────────────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .cover-title { animation: fadeUp 0.7s ease 0.1s both; }
+  .cover-meta  { animation: fadeUp 0.7s ease 0.3s both; }
+
+  /* ─── RESPONSIVE ─────────────────────────────────────────── */
+  @media (max-width: 640px) {
+    .page-wrapper { padding: 0 20px 80px; }
+    .cover { padding: 48px 20px; }
+    .card-grid-2, .card-grid-3, .card-grid-4 { grid-template-columns: 1fr; }
+    .voice-compare { grid-template-columns: 1fr; }
+    .page-map { grid-template-columns: 1fr; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .stack-layer { grid-template-columns: 1fr; }
+    .stack-layer-tool { text-align: left; }
+    .imagery-grid { grid-template-columns: 1fr; }
+    .semantic-grid { grid-template-columns: 1fr 1fr; }
+    .cover-geo-accent { display: none; }
+  }
+
+  @media print {
+    body::before { display: none; }
+    section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     COVER PAGE
+════════════════════════════════════════════════════════════ -->
+<div class="cover">
+  <!-- Lens icon mark -->
+  <svg class="cover-logo-mark" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="28" cy="28" r="27" stroke="#C49234" stroke-width="1.5"/>
+    <circle cx="28" cy="28" r="18" stroke="#C49234" stroke-width="1" stroke-dasharray="2 4"/>
+    <circle cx="28" cy="28" r="8" fill="#C49234" fill-opacity="0.2" stroke="#C49234" stroke-width="1.2"/>
+    <line x1="28" y1="0" x2="28" y2="8" stroke="#C49234" stroke-width="1"/>
+    <line x1="28" y1="48" x2="28" y2="56" stroke="#C49234" stroke-width="1"/>
+    <line x1="0" y1="28" x2="8" y2="28" stroke="#C49234" stroke-width="1"/>
+    <line x1="48" y1="28" x2="56" y2="28" stroke="#C49234" stroke-width="1"/>
+  </svg>
+
+  <div class="cover-top">
+    <h1 class="cover-title">Brand<br><em>Guidelines</em></h1>
+    <p style="color:var(--text-tertiary);font-size:18px;margin-top:20px;max-width:none;">Asfak Ahamed Chowdhury · Personal Brand</p>
+  </div>
+
+  <!-- Geometric accent -->
+  <svg class="cover-geo-accent" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="140" cy="140" r="139" stroke="white" stroke-width="0.5"/>
+    <circle cx="140" cy="140" r="100" stroke="white" stroke-width="0.5" stroke-dasharray="4 8"/>
+    <circle cx="140" cy="140" r="60"  stroke="white" stroke-width="0.5"/>
+    <circle cx="140" cy="140" r="20"  stroke="white" stroke-width="0.5"/>
+    <line x1="140" y1="0"   x2="140" y2="280" stroke="white" stroke-width="0.5" opacity="0.4"/>
+    <line x1="0"   y1="140" x2="280" y2="140" stroke="white" stroke-width="0.5" opacity="0.4"/>
+    <line x1="0"   y1="0"   x2="280" y2="280" stroke="white" stroke-width="0.5" opacity="0.2"/>
+    <line x1="280" y1="0"   x2="0"   y2="280" stroke="white" stroke-width="0.5" opacity="0.2"/>
+  </svg>
+
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="label">Version</div>
+      <div class="value">1.0 — April 2026</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Platform</div>
+      <div class="value">Google Antigravity · Next.js · Firebase</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Classification</div>
+      <div class="value">Personal Brand Reference</div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">CONFIDENTIAL · FOR PERSONAL USE ONLY · ASFAK AHAMED CHOWDHURY</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════════════════════════════ -->
+<div class="page-wrapper">
+
+<!-- ─── TABLE OF CONTENTS ─────────────────────────────────── -->
+<section>
+  <span class="eyebrow">Document Index</span>
+  <h2>Contents</h2>
+  <ol class="toc-list">
+    <li><span class="toc-num">01</span><span class="toc-name">Brand Strategy Foundation</span><span class="toc-page">Positioning · Star · Personality</span></li>
+    <li><span class="toc-num">02</span><span class="toc-name">Logo & Mark System</span><span class="toc-page">Primary · Wordmark · Icon · Rules</span></li>
+    <li><span class="toc-num">03</span><span class="toc-name">Color System</span><span class="toc-page">Palette · Roles · Semantics · Contrast</span></li>
+    <li><span class="toc-num">04</span><span class="toc-name">Typography System</span><span class="toc-page">Fonts · Scale · Pairing · Rules</span></li>
+    <li><span class="toc-num">05</span><span class="toc-name">Motion Language</span><span class="toc-page">Principles · Durations · Easing · Patterns</span></li>
+    <li><span class="toc-num">06</span><span class="toc-name">Voice & Tone System</span><span class="toc-page">Attributes · Contexts · Word Avoidance</span></li>
+    <li><span class="toc-num">07</span><span class="toc-name">Content Pillars</span><span class="toc-page">Five pillars · Angles · BD Context</span></li>
+    <li><span class="toc-num">08</span><span class="toc-name">Photography & Imagery</span><span class="toc-page">Direction · Treatment · Rules</span></li>
+    <li><span class="toc-num">09</span><span class="toc-name">Website Architecture</span><span class="toc-page">Pages · Structure · CRO</span></li>
+    <li><span class="toc-num">10</span><span class="toc-name">Tech Stack</span><span class="toc-page">Google Antigravity · Firebase · CMS</span></li>
+  </ol>
+</section>
+
+<!-- ─── 01. BRAND STRATEGY ────────────────────────────────── -->
+<section id="brand-strategy">
+  <span class="eyebrow">01 — Brand Strategy Foundation</span>
+  <h2>Who You Are, Precisely</h2>
+
+  <h3>Positioning Statement</h3>
+  <div class="positioning-block">
+    <p>"Dhaka-based strategist, operations professional, and geopolitical observer. I write about what power, technology, and market forces mean for people building things in Bangladesh and beyond."</p>
+  </div>
+
+  <h3>Brand Mission</h3>
+  <p>To make intelligent analysis of complex geopolitical and business systems accessible to professionals building in Bangladesh — cutting through noise with perspective, not prediction.</p>
+
+  <h3>Brand Promise</h3>
+  <p>Every piece of content delivers a concrete reframe — not a news summary, not an opinion piece dressed as analysis. A specific perspective that changes how a reader sees a system they operate inside.</p>
+
+  <hr class="divider">
+
+  <h3>Brand Personality</h3>
+  <p>Three adjectives. Test each: does your direct competitor claim this word? If yes, it's wrong.</p>
+  <div class="personality-tags">
+    <span class="personality-tag primary">Sharp</span>
+    <span class="personality-tag primary">Grounded</span>
+    <span class="personality-tag primary">Consequential</span>
+    <span class="personality-tag">Not: Inspiring</span>
+    <span class="personality-tag">Not: Innovative</span>
+    <span class="personality-tag">Not: Passionate</span>
+  </div>
+
+  <hr class="divider">
+
+  <h3>The Star of the Show — "The Lens"</h3>
+  <div class="star-block">
+    <svg class="star-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="40" cy="40" r="38" stroke="#C49234" stroke-width="1.2"/>
+      <circle cx="40" cy="40" r="24" stroke="#C49234" stroke-width="1" stroke-dasharray="3 5"/>
+      <circle cx="40" cy="40" r="10" fill="#C49234" fill-opacity="0.25" stroke="#C49234" stroke-width="1.5"/>
+      <line x1="40" y1="0"  x2="40" y2="12" stroke="#C49234" stroke-width="1.2"/>
+      <line x1="40" y1="68" x2="40" y2="80" stroke="#C49234" stroke-width="1.2"/>
+      <line x1="0"  y1="40" x2="12" y2="40" stroke="#C49234" stroke-width="1.2"/>
+      <line x1="68" y1="40" x2="80" y2="40" stroke="#C49234" stroke-width="1.2"/>
+    </svg>
+    <div>
+      <h4>Visual Metaphor</h4>
+      <p>The Lens — a precision optical instrument that brings distant, complex things into sharp focus. Every post, article, and piece of content is you applying a trained lens to something most people only see at blur.</p>
+      <p style="margin-top:12px;">This anchors everything visual: precise circular geometry, cross-hair alignment marks, concentric rings, the language of focal depth and clarity. Not decoration — a consistent visual grammar that encodes your core claim: <em>I see this more clearly than most.</em></p>
+
+      <div style="margin-top:20px;">
+        <h4>Visual Extensions (Shape Rhyming)</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:8px;">
+          <li style="font-size:13px;color:var(--text-secondary);">→ Circular elements in logo mark, section dividers, image frames</li>
+          <li style="font-size:13px;color:var(--text-secondary);">→ Fine crosshair / registration marks as decorative accents</li>
+          <li style="font-size:13px;color:var(--text-secondary);">→ Dashed concentric rings as background texture (subtle, 3–5% opacity)</li>
+          <li style="font-size:13px;color:var(--text-secondary);">→ Precision grid lines in illustrations and data graphics</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 02. LOGO SYSTEM ───────────────────────────────────── -->
+<section id="logo">
+  <span class="eyebrow">02 — Logo & Mark System</span>
+  <h2>Logo Direction</h2>
+
+  <p>The logo has four mandatory variants. All four must be produced before any public presence goes live.</p>
+
+  <div class="card-grid card-grid-2" style="margin:32px 0;">
+
+    <div class="card" style="text-align:center;">
+      <!-- Primary Mark Preview -->
+      <div style="background:var(--surface-2);padding:40px;border-radius:4px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:16px;">
+        <svg viewBox="0 0 40 40" width="40" height="40" fill="none">
+          <circle cx="20" cy="20" r="19" stroke="#C49234" stroke-width="1.2"/>
+          <circle cx="20" cy="20" r="12" stroke="#C49234" stroke-width="0.8" stroke-dasharray="2 3"/>
+          <circle cx="20" cy="20" r="5"  fill="#C49234" fill-opacity="0.3" stroke="#C49234" stroke-width="1"/>
+          <line x1="20" y1="0"  x2="20" y2="6"  stroke="#C49234" stroke-width="1"/>
+          <line x1="20" y1="34" x2="20" y2="40" stroke="#C49234" stroke-width="1"/>
+          <line x1="0"  y1="20" x2="6"  y2="20" stroke="#C49234" stroke-width="1"/>
+          <line x1="34" y1="20" x2="40" y2="20" stroke="#C49234" stroke-width="1"/>
+        </svg>
+        <div style="text-align:left;">
+          <div style="font-family:var(--font-display);font-size:22px;font-weight:700;letter-spacing:-0.02em;color:var(--text-primary);">Asfak</div>
+          <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;color:var(--accent);text-transform:uppercase;">Ahamed Chowdhury</div>
+        </div>
+      </div>
+      <div class="swatch-name" style="margin-bottom:4px;">Primary Lockup</div>
+      <div class="swatch-role">Icon + Full name — default usage</div>
+    </div>
+
+    <div class="card" style="text-align:center;">
+      <div style="background:var(--surface-2);padding:40px;border-radius:4px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;">
+        <svg viewBox="0 0 40 40" width="48" height="48" fill="none">
+          <circle cx="20" cy="20" r="19" stroke="#C49234" stroke-width="1.2"/>
+          <circle cx="20" cy="20" r="12" stroke="#C49234" stroke-width="0.8" stroke-dasharray="2 3"/>
+          <circle cx="20" cy="20" r="5"  fill="#C49234" fill-opacity="0.3" stroke="#C49234" stroke-width="1"/>
+          <line x1="20" y1="0"  x2="20" y2="6"  stroke="#C49234" stroke-width="1"/>
+          <line x1="20" y1="34" x2="20" y2="40" stroke="#C49234" stroke-width="1"/>
+          <line x1="0"  y1="20" x2="6"  y2="20" stroke="#C49234" stroke-width="1"/>
+          <line x1="34" y1="20" x2="40" y2="20" stroke="#C49234" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="swatch-name" style="margin-bottom:4px;">Icon Only</div>
+      <div class="swatch-role">Social avatars, favicons, small applications</div>
+    </div>
+
+    <div class="card" style="text-align:center;">
+      <div style="background:var(--text-primary);padding:40px;border-radius:4px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:16px;">
+        <svg viewBox="0 0 40 40" width="36" height="36" fill="none">
+          <circle cx="20" cy="20" r="19" stroke="#0C0B09" stroke-width="1.2"/>
+          <circle cx="20" cy="20" r="12" stroke="#0C0B09" stroke-width="0.8" stroke-dasharray="2 3"/>
+          <circle cx="20" cy="20" r="5"  fill="#0C0B09" fill-opacity="0.3" stroke="#0C0B09" stroke-width="1"/>
+          <line x1="20" y1="0"  x2="20" y2="6"  stroke="#0C0B09" stroke-width="1"/>
+          <line x1="20" y1="34" x2="20" y2="40" stroke="#0C0B09" stroke-width="1"/>
+          <line x1="0"  y1="20" x2="6"  y2="20" stroke="#0C0B09" stroke-width="1"/>
+          <line x1="34" y1="20" x2="40" y2="20" stroke="#0C0B09" stroke-width="1"/>
+        </svg>
+        <div style="text-align:left;">
+          <div style="font-family:var(--font-display);font-size:20px;font-weight:700;color:#0C0B09;">Asfak</div>
+          <div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.2em;color:#0C0B09;text-transform:uppercase;opacity:0.7;">Ahamed Chowdhury</div>
+        </div>
+      </div>
+      <div class="swatch-name" style="margin-bottom:4px;">Reversed (Dark on Light)</div>
+      <div class="swatch-role">Light backgrounds, print, documents</div>
+    </div>
+
+    <div class="card" style="text-align:center;">
+      <div style="background:var(--surface-2);padding:40px;border-radius:4px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;">
+        <div style="font-family:var(--font-display);font-size:22px;font-weight:700;letter-spacing:-0.02em;color:var(--text-primary);">Asfak<span style="color:var(--accent);">.</span></div>
+      </div>
+      <div class="swatch-name" style="margin-bottom:4px;">Wordmark Only</div>
+      <div class="swatch-role">Bylines, footers, text-heavy contexts</div>
+    </div>
+  </div>
+
+  <h3>Logo Rules</h3>
+  <div class="rule-list">
+    <div class="rule-item do">
+      <svg class="rule-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#5DBF88" stroke-width="1.2"/><path d="M6 10l3 3 5-5" stroke="#5DBF88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="rule-text">Maintain minimum clear space equal to the height of the 'A' in "Asfak" on all four sides.</span>
+    </div>
+    <div class="rule-item do">
+      <svg class="rule-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#5DBF88" stroke-width="1.2"/><path d="M6 10l3 3 5-5" stroke="#5DBF88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="rule-text">Use only approved color variants: Dark-on-amber, amber-on-dark, dark-on-light, light-on-dark.</span>
+    </div>
+    <div class="rule-item">
+      <svg class="rule-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#E07070" stroke-width="1.2"/><path d="M7 7l6 6M13 7l-6 6" stroke="#E07070" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span class="rule-text">Never stretch, skew, rotate, or alter the proportions of the mark or wordmark.</span>
+    </div>
+    <div class="rule-item">
+      <svg class="rule-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#E07070" stroke-width="1.2"/><path d="M7 7l6 6M13 7l-6 6" stroke="#E07070" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span class="rule-text">Never place the logo on busy photographic backgrounds without a background treatment (semi-opaque overlay minimum).</span>
+    </div>
+    <div class="rule-item">
+      <svg class="rule-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#E07070" stroke-width="1.2"/><path d="M7 7l6 6M13 7l-6 6" stroke="#E07070" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span class="rule-text">Never use drop shadows, gradients, or glow effects on the logo mark.</span>
+    </div>
+    <div class="rule-item">
+      <svg class="rule-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#E07070" stroke-width="1.2"/><path d="M7 7l6 6M13 7l-6 6" stroke="#E07070" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span class="rule-text">Minimum digital size: 24px height for icon-only. 120px width for lockup. Below this, use wordmark only.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 03. COLOR SYSTEM ──────────────────────────────────── -->
+<section id="colors">
+  <span class="eyebrow">03 — Color System</span>
+  <h2>Color</h2>
+
+  <p>60-30-10 rule without exception. The dominant color is dark, warm near-black — signals seriousness and intellectual weight. The accent is amber-gold — warm, authoritative, deliberately not the tech-blue cliché. This palette draws from editorial newsprint, strategic intelligence documents, and South Asian textile gold.</p>
+
+  <h3>60-30-10 Distribution</h3>
+  <div class="color-ratio-bar">
+    <div class="ratio-segment" style="width:60%;background:#0C0B09;border-right:1px solid rgba(255,255,255,0.1);">
+      <span class="ratio-label">60% · Background / Surface</span>
+    </div>
+    <div class="ratio-segment" style="width:30%;background:#1F1C18;border-right:1px solid rgba(255,255,255,0.1);">
+      <span class="ratio-label">30% · Secondary</span>
+    </div>
+    <div class="ratio-segment" style="width:10%;background:#C49234;">
+      <span class="ratio-label" style="color:rgba(0,0,0,0.7);">10% · Accent</span>
+    </div>
+  </div>
+
+  <h3 style="margin-top:40px;">Primary Palette</h3>
+  <div class="card-grid card-grid-4">
+    <div class="color-swatch">
+      <div class="swatch-color" style="background:#0C0B09;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Background</div>
+        <div class="swatch-hex">--bg · #0C0B09</div>
+        <div class="swatch-role">Primary canvas. Warm near-black.</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-color" style="background:#161411;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Surface</div>
+        <div class="swatch-hex">--surface · #161411</div>
+        <div class="swatch-role">Cards, nav, elevated panels.</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-color" style="background:#1F1C18;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Surface 2</div>
+        <div class="swatch-hex">--surface-2 · #1F1C18</div>
+        <div class="swatch-role">Nested cards, hover states.</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-color" style="background:#C49234;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Accent Gold</div>
+        <div class="swatch-hex">--accent · #C49234</div>
+        <div class="swatch-role">CTAs, links, highlights only.</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-color" style="background:#EFE5D0;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Text Primary</div>
+        <div class="swatch-hex">--text-primary · #EFE5D0</div>
+        <div class="swatch-role">Headlines, primary content.</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-color" style="background:rgba(239,229,208,0.62);"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Text Secondary</div>
+        <div class="swatch-hex">--text-secondary · 62%</div>
+        <div class="swatch-role">Body copy, descriptions.</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-color" style="background:rgba(239,229,208,0.38);"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Text Tertiary</div>
+        <div class="swatch-hex">--text-tertiary · 38%</div>
+        <div class="swatch-role">Metadata, captions, disabled.</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-color" style="background:rgba(196,146,52,0.14);border:1px solid rgba(196,146,52,0.3);"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Accent Muted</div>
+        <div class="swatch-hex">--accent-muted · 14%</div>
+        <div class="swatch-role">Tags, badges, hover fills.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:40px;">Semantic Colors</h3>
+  <p>Override brand colors in their specific context. The accent gold is never used for error states.</p>
+  <div class="semantic-grid">
+    <div class="semantic-item" style="background:rgba(42,122,75,0.15);border:1px solid rgba(42,122,75,0.3);">
+      <div class="sem-label" style="color:#5DBF88;">Success</div>
+      <div class="sem-hex" style="color:#5DBF88;">#2A7A4B</div>
+    </div>
+    <div class="semantic-item" style="background:rgba(176,91,26,0.15);border:1px solid rgba(176,91,26,0.3);">
+      <div class="sem-label" style="color:#D4834A;">Warning</div>
+      <div class="sem-hex" style="color:#D4834A;">#B05B1A</div>
+    </div>
+    <div class="semantic-item" style="background:rgba(163,42,42,0.15);border:1px solid rgba(163,42,42,0.3);">
+      <div class="sem-label" style="color:#E07070;">Error</div>
+      <div class="sem-hex" style="color:#E07070;">#A32A2A</div>
+    </div>
+    <div class="semantic-item" style="background:rgba(26,92,154,0.15);border:1px solid rgba(26,92,154,0.3);">
+      <div class="sem-label" style="color:#5B9FE0;">Info</div>
+      <div class="sem-hex" style="color:#5B9FE0;">#1A5C9A</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:40px;">Text Opacity Hierarchy</h3>
+  <div class="card" style="margin-top:16px;">
+    <table style="width:100%;border-collapse:collapse;">
+      <thead><tr>
+        <th style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-tertiary);padding:8px 0;text-align:left;border-bottom:1px solid var(--border);">Usage</th>
+        <th style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-tertiary);padding:8px 0;text-align:left;border-bottom:1px solid var(--border);">Opacity</th>
+        <th style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-tertiary);padding:8px 0;text-align:left;border-bottom:1px solid var(--border);">Sample</th>
+      </tr></thead>
+      <tbody>
+        <tr><td style="padding:12px 0;border-bottom:1px solid var(--border);color:var(--text-secondary);font-size:13px;">Headlines, active nav</td><td style="padding:12px 0;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-size:12px;color:var(--accent);">100%</td><td style="padding:12px 0;border-bottom:1px solid var(--border);font-size:15px;color:rgba(239,229,208,1.0);">The Dhaka Lens</td></tr>
+        <tr><td style="padding:12px 0;border-bottom:1px solid var(--border);color:var(--text-secondary);font-size:13px;">Primary body text</td><td style="padding:12px 0;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-size:12px;color:var(--accent);">72%</td><td style="padding:12px 0;border-bottom:1px solid var(--border);font-size:15px;color:rgba(239,229,208,0.72);">The Dhaka Lens</td></tr>
+        <tr><td style="padding:12px 0;border-bottom:1px solid var(--border);color:var(--text-secondary);font-size:13px;">Subheadings, descriptions</td><td style="padding:12px 0;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-size:12px;color:var(--accent);">62%</td><td style="padding:12px 0;border-bottom:1px solid var(--border);font-size:15px;color:rgba(239,229,208,0.62);">The Dhaka Lens</td></tr>
+        <tr><td style="padding:12px 0;border-bottom:1px solid var(--border);color:var(--text-secondary);font-size:13px;">Supporting text, captions</td><td style="padding:12px 0;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-size:12px;color:var(--accent);">42%</td><td style="padding:12px 0;border-bottom:1px solid var(--border);font-size:15px;color:rgba(239,229,208,0.42);">The Dhaka Lens</td></tr>
+        <tr><td style="padding:12px 0;color:var(--text-secondary);font-size:13px;">Metadata, disabled states</td><td style="padding:12px 0;font-family:var(--font-mono);font-size:12px;color:var(--accent);">28%</td><td style="padding:12px 0;font-size:15px;color:rgba(239,229,208,0.28);">The Dhaka Lens</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout" style="margin-top:32px;">
+    <p><strong>Accessibility requirement:</strong> The amber accent (#C49234) on the near-black background (#0C0B09) achieves a 6.1:1 contrast ratio — WCAG 2.1 AA compliant for all text sizes. Verify all text color combinations via Google Lighthouse Accessibility audit. Target: 95+ score. Any failure is a launch blocker.</p>
+  </div>
+</section>
+
+<!-- ─── 04. TYPOGRAPHY SYSTEM ─────────────────────────────── -->
+<section id="typography">
+  <span class="eyebrow">04 — Typography System</span>
+  <h2>Type</h2>
+
+  <p>Three typefaces. One purpose each. Never mixed out of their lane.</p>
+
+  <div class="card-grid card-grid-3" style="margin:32px 0;">
+    <div class="font-specimen-block">
+      <div class="specimen-meta">Display / Headlines · Playfair Display</div>
+      <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;line-height:1.05;letter-spacing:-0.02em;color:var(--text-primary);">The Dhaka<br><em>Lens</em></div>
+      <div style="font-family:'Playfair Display',serif;font-size:14px;color:var(--text-tertiary);margin-top:12px;">Editorial authority. The newspaper of record feel. Signals serious analytical thinking, not content marketing.</div>
+    </div>
+    <div class="font-specimen-block">
+      <div class="specimen-meta">Body / UI · DM Sans</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:18px;font-weight:400;line-height:1.65;color:var(--text-secondary);">Clear signal from complex systems. What power, technology, and market forces mean for you.</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:12px;color:var(--text-tertiary);margin-top:12px;">Modern, humanist, highly legible. Neutral enough to serve the display font. Warm enough to not feel corporate.</div>
+    </div>
+    <div class="font-specimen-block">
+      <div class="specimen-meta">Mono / Labels · IBM Plex Mono</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);line-height:1.7;">01 — STRATEGY<br>BD_CONTEXT<br>v1.0 · 2026<br>GEOPOLITICS</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:12px;color:var(--text-tertiary);margin-top:12px;">For section labels, eyebrows, stats, technical callouts. Mono creates precision contrast against the serif display.</div>
+    </div>
+  </div>
+
+  <h3>Type Scale</h3>
+  <p>Major Third scale (1.25× ratio). 16px base. Never deviate from these sizes — consistency is the system.</p>
+
+  <table class="type-scale-table">
+    <thead><tr>
+      <th>Level</th><th>Specimen</th><th>Size · Weight · Tracking · Leading</th><th>Usage</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td class="td-label">H1</td>
+        <td class="td-specimen"><span style="font-family:'Playfair Display',serif;font-size:48px;font-weight:700;letter-spacing:-0.025em;line-height:1.05;color:var(--text-primary);">Power &amp; Place</span></td>
+        <td class="td-spec">61px · 700 · −0.025em · 1.05</td>
+        <td style="font-size:12px;color:var(--text-secondary);">Hero headlines, page titles only</td>
+      </tr>
+      <tr>
+        <td class="td-label">H2</td>
+        <td class="td-specimen"><span style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;letter-spacing:-0.02em;line-height:1.08;color:var(--text-primary);">What Shifts Mean</span></td>
+        <td class="td-spec">49px · 700 · −0.02em · 1.08</td>
+        <td style="font-size:12px;color:var(--text-secondary);">Section headings</td>
+      </tr>
+      <tr>
+        <td class="td-label">H3</td>
+        <td class="td-specimen"><span style="font-family:'Playfair Display',serif;font-size:28px;font-weight:600;letter-spacing:-0.015em;color:var(--text-primary);">Applied Geopolitics</span></td>
+        <td class="td-spec">39px · 600 · −0.015em · 1.1</td>
+        <td style="font-size:12px;color:var(--text-secondary);">Sub-sections, card titles</td>
+      </tr>
+      <tr>
+        <td class="td-label">H4</td>
+        <td class="td-specimen"><span style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:600;letter-spacing:-0.01em;color:var(--text-primary);">The Dhaka Lens</span></td>
+        <td class="td-spec">31px · 600 · −0.01em · 1.15</td>
+        <td style="font-size:12px;color:var(--text-secondary);">Feature labels, callout headers</td>
+      </tr>
+      <tr>
+        <td class="td-label">H5</td>
+        <td class="td-specimen"><span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:var(--text-primary);">Clear Signal</span></td>
+        <td class="td-spec">25px · 500 · 0 · 1.2</td>
+        <td style="font-size:12px;color:var(--text-secondary);">Small section labels, eyebrows</td>
+      </tr>
+      <tr>
+        <td class="td-label">Body L</td>
+        <td class="td-specimen"><span style="font-family:'DM Sans',sans-serif;font-size:18px;font-weight:400;color:var(--text-secondary);">Every decision is a consequence you can trace forward.</span></td>
+        <td class="td-spec">18px · 400 · 0 · 1.72</td>
+        <td style="font-size:12px;color:var(--text-secondary);">Intro paragraphs, featured copy</td>
+      </tr>
+      <tr>
+        <td class="td-label">Body</td>
+        <td class="td-specimen"><span style="font-family:'DM Sans',sans-serif;font-size:16px;font-weight:400;color:var(--text-secondary);">Bangladesh's professionals need analysis, not headlines.</span></td>
+        <td class="td-spec">16px · 400 · 0 · 1.72</td>
+        <td style="font-size:12px;color:var(--text-secondary);">Standard body, UI labels</td>
+      </tr>
+      <tr>
+        <td class="td-label">Caption</td>
+        <td class="td-specimen"><span style="font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text-tertiary);">April 2026 · Dhaka, Bangladesh</span></td>
+        <td class="td-spec">14px · 400 · 0 · 1.5</td>
+        <td style="font-size:12px;color:var(--text-secondary);">Captions, footnotes, dates</td>
+      </tr>
+      <tr>
+        <td class="td-label">Mono</td>
+        <td class="td-specimen"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;color:var(--accent);text-transform:uppercase;">01 — GEOPOLITICS</span></td>
+        <td class="td-spec">11px · 500 · 0.14em · 1.5</td>
+        <td style="font-size:12px;color:var(--text-secondary);">Eyebrows, labels, section numbers</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout" style="margin-top:32px;">
+    <p><strong>Installation:</strong> Load via <code style="font-family:var(--font-mono);font-size:12px;color:var(--accent);">next/font/google</code> — never via CSS @import (blocks rendering). Limit loaded weights to: Playfair Display 400i, 700, 700i, 900 · DM Sans 400, 500, 600 · IBM Plex Mono 400, 500. Maximum 3 font files per family.</p>
+  </div>
+</section>
+
+<!-- ─── 05. MOTION LANGUAGE ───────────────────────────────── -->
+<section id="motion">
+  <span class="eyebrow">05 — Motion Language</span>
+  <h2>Motion</h2>
+
+  <p>Motion is a communication layer, not decoration. Every animation must answer one question: what does the user now understand that they did not before? If there is no answer, the animation is cut.</p>
+
+  <h3>Duration Ranges</h3>
+  <table class="motion-table" style="margin:24px 0;">
+    <thead><tr><th>Interaction Type</th><th>Duration</th><th>Rule</th></tr></thead>
+    <tbody>
+      <tr><td class="td-type">Micro-interactions (hover, focus)</td><td class="td-value">100–200ms</td><td class="td-note">Button press, link hover, icon state change</td></tr>
+      <tr><td class="td-type">UI state changes</td><td class="td-value">200–350ms</td><td class="td-note">Dropdown open, modal appear, tab switch</td></tr>
+      <tr><td class="td-type">Page route transitions</td><td class="td-value">300–400ms</td><td class="td-note">Fade + Y translate between pages</td></tr>
+      <tr><td class="td-type">Scroll-triggered reveals</td><td class="td-value">400–700ms</td><td class="td-note">Section elements entering viewport</td></tr>
+      <tr><td class="td-type">Stagger delay (per sibling)</td><td class="td-value">80ms offset</td><td class="td-note">Card grids, list items appearing</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Easing Standards</h3>
+  <table class="motion-table" style="margin:24px 0;">
+    <thead><tr><th>Context</th><th>Easing</th><th>CSS Value</th></tr></thead>
+    <tbody>
+      <tr><td class="td-type">Elements entering</td><td class="td-value">ease-out</td><td class="td-note"><code style="font-family:var(--font-mono);font-size:12px;">cubic-bezier(0.0, 0.0, 0.2, 1)</code></td></tr>
+      <tr><td class="td-type">Elements leaving</td><td class="td-value">ease-in</td><td class="td-note"><code style="font-family:var(--font-mono);font-size:12px;">cubic-bezier(0.4, 0.0, 1, 1)</code></td></tr>
+      <tr><td class="td-type">Standard interactions</td><td class="td-value">ease-in-out</td><td class="td-note"><code style="font-family:var(--font-mono);font-size:12px;">cubic-bezier(0.4, 0.0, 0.2, 1)</code></td></tr>
+    </tbody>
+  </table>
+  <div class="callout"><p><strong>Never use linear easing</strong> for UI motion. Linear feels robotic. Ease functions feel physical.</p></div>
+
+  <h3 style="margin-top:40px;">Animation Patterns</h3>
+  <div class="card-grid card-grid-2" style="margin:24px 0;">
+    <div class="card">
+      <h4>Default Scroll Reveal</h4>
+      <p style="font-size:13px;margin-bottom:12px;">Applied to all content sections entering the viewport.</p>
+      <pre style="font-family:var(--font-mono);font-size:11px;color:var(--accent);background:var(--surface-2);padding:16px;border-radius:4px;overflow-x:auto;line-height:1.7;">// Framer Motion pattern
+const reveal = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1, y: 0,
+    transition: {
+      duration: 0.55,
+      ease: [0.0, 0.0, 0.2, 1]
+    }
+  }
+}
+// Trigger: useInView at 20% visibility</pre>
+    </div>
+    <div class="card">
+      <h4>Stagger Grid</h4>
+      <p style="font-size:13px;margin-bottom:12px;">Cards, pillar items, any grid of 3+ elements.</p>
+      <pre style="font-family:var(--font-mono);font-size:11px;color:var(--accent);background:var(--surface-2);padding:16px;border-radius:4px;overflow-x:auto;line-height:1.7;">const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.08
+    }
+  }
+}
+const item = {
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0 }
+}</pre>
+    </div>
+    <div class="card">
+      <h4>Page Transition</h4>
+      <p style="font-size:13px;margin-bottom:12px;">Applied via AnimatePresence in root layout.tsx</p>
+      <pre style="font-family:var(--font-mono);font-size:11px;color:var(--accent);background:var(--surface-2);padding:16px;border-radius:4px;overflow-x:auto;line-height:1.7;">initial={{ opacity: 0, y: 8 }}
+animate={{ opacity: 1, y: 0 }}
+exit={{ opacity: 0, y: -8 }}
+transition={{
+  duration: 0.3,
+  ease: [0.0, 0.0, 0.2, 1]
+}}</pre>
+    </div>
+    <div class="card">
+      <h4>Hover States</h4>
+      <p style="font-size:13px;margin-bottom:12px;">CSS only — Framer Motion is overkill for hover.</p>
+      <pre style="font-family:var(--font-mono);font-size:11px;color:var(--accent);background:var(--surface-2);padding:16px;border-radius:4px;overflow-x:auto;line-height:1.7;">/* Card hover */
+transition: transform 0.18s ease,
+            border-color 0.18s ease;
+&:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
+}
+
+/* Button press */
+&:active { transform: scale(0.97); }</pre>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>Accessibility requirement:</strong> All animations must respect <code style="font-family:var(--font-mono);font-size:12px;color:var(--accent);">prefers-reduced-motion</code>. Wrap in <code style="font-family:var(--font-mono);font-size:12px;color:var(--accent);">@media (prefers-reduced-motion: reduce)</code> and disable all non-essential motion. Not optional.</p>
+  </div>
+
+  <h3 style="margin-top:40px;">Button System</h3>
+  <div class="button-row">
+    <a class="demo-button" href="#">Read the Analysis →</a>
+    <a class="demo-button ghost" href="#">Subscribe Free</a>
+  </div>
+  <p style="font-size:12px;margin-top:8px;">Primary CTA uses amber fill. Ghost uses border only. Both use 100–150ms hover transition. Active state scales to 0.97.</p>
+</section>
+
+<!-- ─── 06. VOICE & TONE ──────────────────────────────────── -->
+<section id="voice">
+  <span class="eyebrow">06 — Voice &amp; Tone System</span>
+  <h2>Voice &amp; Tone</h2>
+
+  <p>Voice is permanent — the same in every piece of content. Tone shifts based on the context (informational vs. persuasive vs. supportive). Both are defined below.</p>
+
+  <h3>Brand Voice Attributes</h3>
+  <div class="personality-tags">
+    <span class="personality-tag primary">Direct</span>
+    <span class="personality-tag primary">Consequential</span>
+    <span class="personality-tag primary">Grounded</span>
+    <span class="personality-tag primary">Precise</span>
+  </div>
+  <p>Test: does every sentence on the site sound like it comes from the same person? If a sentence sounds like it was written by a marketing team, it fails the test.</p>
+
+  <h3 style="margin-top:40px;">Voice in Context</h3>
+  <div class="voice-compare">
+    <div class="voice-box avoid">
+      <div class="vb-label">❌ Never write like this</div>
+      <ul>
+        <li>I'm excited to share my latest analysis on...</li>
+        <li>In today's rapidly evolving landscape...</li>
+        <li>As a passionate advocate for...</li>
+        <li>Join me on this journey of exploration...</li>
+        <li>Thrilled to announce...</li>
+        <li>At the end of the day, it's all about...</li>
+        <li>My thoughts and prayers go out to...</li>
+        <li>Honoured and humbled to...</li>
+      </ul>
+    </div>
+    <div class="voice-box use">
+      <div class="vb-label">✓ Write like this</div>
+      <ul>
+        <li>China's infrastructure withdrawal matters to Dhaka for three concrete reasons.</li>
+        <li>This happened. Here is what it means. Here is what you should watch next.</li>
+        <li>I got this wrong. Here is what I missed and why it matters.</li>
+        <li>Most analysis stops at the headline. This goes further.</li>
+        <li>The question no one is asking about the BD election...</li>
+        <li>Three decisions I made that killed my UK agency.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin-top:40px;">Word Avoidance List</h3>
+  <p>These words are either generic, corporate, or signal low-quality thinking. Never use them.</p>
+  <div class="word-avoid-list">
+    <span class="word-avoid">passionate</span>
+    <span class="word-avoid">excited to share</span>
+    <span class="word-avoid">journey</span>
+    <span class="word-avoid">honoured/humbled</span>
+    <span class="word-avoid">rapidly evolving</span>
+    <span class="word-avoid">world-class</span>
+    <span class="word-avoid">cutting-edge</span>
+    <span class="word-avoid">synergy</span>
+    <span class="word-avoid">leverage</span>
+    <span class="word-avoid">ecosystem</span>
+    <span class="word-avoid">at the end of the day</span>
+    <span class="word-avoid">thought leader</span>
+    <span class="word-avoid">holistic</span>
+    <span class="word-avoid">game-changer</span>
+    <span class="word-avoid">disruptive</span>
+    <span class="word-avoid">very</span>
+    <span class="word-avoid">really</span>
+    <span class="word-avoid">truly</span>
+  </div>
+
+  <h3 style="margin-top:40px;">Tone by Context</h3>
+  <div class="card-grid card-grid-3" style="margin-top:16px;">
+    <div class="card">
+      <h4>Informational</h4>
+      <p style="font-size:13px;">Used in: analyses, Substack issues, website copy about your work.</p>
+      <p style="font-size:13px;margin-top:8px;font-style:italic;">Precise, direct, no jargon. State the fact. State the implication. Move on.</p>
+    </div>
+    <div class="card">
+      <h4>Persuasive</h4>
+      <p style="font-size:13px;">Used in: CTAs, outreach messages, LinkedIn posts, agency pages.</p>
+      <p style="font-size:13px;margin-top:8px;font-style:italic;">Confident, benefit-led. What they gain. Not what you offer.</p>
+    </div>
+    <div class="card">
+      <h4>Personal / Transparent</h4>
+      <p style="font-size:13px;">Used in: Founder/Life pillar, About page, failure posts.</p>
+      <p style="font-size:13px;margin-top:8px;font-style:italic;">Raw without being self-pitying. Honest without being confessional. Keep it consequential.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 07. CONTENT PILLARS ───────────────────────────────── -->
+<section id="pillars">
+  <span class="eyebrow">07 — Content Pillars</span>
+  <h2>Five Pillars</h2>
+
+  <p>Rotate across all five. Never stay in one lane for more than three consecutive posts. Each pillar is an angle, not a topic. The BD context is non-negotiable in every pillar.</p>
+
+  <div class="pillars-grid">
+    <div class="pillar-card">
+      <div class="pillar-num">PILLAR 01</div>
+      <div class="pillar-name">Geopolitics Applied</div>
+      <div class="pillar-angle">What global power shifts mean for BD economy, jobs, and trade — not abstract commentary.</div>
+      <div class="pillar-example">"What China's infrastructure pullback means for Bangladesh's garment sector"</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">PILLAR 02</div>
+      <div class="pillar-name">Tech & AI for Non-Devs</div>
+      <div class="pillar-angle">Practical AI use in plain language. BD context. No developer jargon. No hype.</div>
+      <div class="pillar-example">"I used AI to build a client website in 4 hours. Here's the honest breakdown."</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">PILLAR 03</div>
+      <div class="pillar-name">Ops & Business Reality</div>
+      <div class="pillar-angle">Hard lessons from running teams, managing clients, building and closing agencies. No sanitising.</div>
+      <div class="pillar-example">"Why my UK agency failed in 4 months. Three decisions I got wrong."</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">PILLAR 04</div>
+      <div class="pillar-name">Bangladesh Professional Lens</div>
+      <div class="pillar-angle">Career, market opportunity, and systemic observations from inside Dhaka — not commentary from outside.</div>
+      <div class="pillar-example">"The one skill that gets you remote work in 2026 if you're from Dhaka"</div>
+    </div>
+    <div class="pillar-card" style="grid-column: 1 / -1;">
+      <div class="pillar-num">PILLAR 05</div>
+      <div class="pillar-name">Founder / Life Transparency</div>
+      <div class="pillar-angle">Raw, honest narrative of building while employed, expecting a child, operating on zero budget. Consequential, not self-indulgent.</div>
+      <div class="pillar-example">"My wife is due next month. I'm also launching two things. Here's the truth about how that actually works."</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 08. IMAGERY DIRECTION ─────────────────────────────── -->
+<section id="imagery">
+  <span class="eyebrow">08 — Photography &amp; Imagery</span>
+  <h2>Visual Direction</h2>
+
+  <div class="imagery-grid">
+    <div class="imagery-item">
+      <div class="img-label">Photography Style</div>
+      <div class="img-desc">Natural light. Environmental over studio. You in context — at a desk, in Dhaka, working — not posed against a neutral backdrop.</div>
+    </div>
+    <div class="imagery-item">
+      <div class="img-label">Color Treatment</div>
+      <div class="img-desc">Desaturate by 15–25%. Lift shadows slightly. Add warm tint (+5 temperature). Never oversaturate. Never Instagram filter.</div>
+    </div>
+    <div class="imagery-item">
+      <div class="img-label">Subject Matter</div>
+      <div class="img-desc">Maps, data visualizations, architectural detail, newsprint textures, street-level Dhaka photography (selective, not tourist-facing).</div>
+    </div>
+    <div class="imagery-item">
+      <div class="img-label">Graphic Style</div>
+      <div class="img-desc">Sparse line illustrations. Precision diagrams. Minimal decorative elements. All illustrations must use the brand color system.</div>
+    </div>
+    <div class="imagery-item">
+      <div class="img-label">What to Avoid</div>
+      <div class="img-desc">Stock photos. Handshakes. Laptops at coffee shops. Globe graphics. Any image that looks like it came from Unsplash's "business" category.</div>
+    </div>
+    <div class="imagery-item">
+      <div class="img-label">Icon System</div>
+      <div class="img-desc">Lucide React icon library. Stroke weight: 1.5px. Size: 16px or 20px only. Never filled icons — outline only. Amber color only or text-secondary.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 09. WEBSITE ARCHITECTURE ─────────────────────────── -->
+<section id="website">
+  <span class="eyebrow">09 — Website Architecture</span>
+  <h2>Site Structure</h2>
+
+  <p>Four pages. Each has a single, named conversion goal. Nothing on the page exists that doesn't serve that goal.</p>
+
+  <div class="page-map">
+    <div class="page-card">
+      <div class="page-name">/  Home</div>
+      <div class="page-goal">Goal: Subscribe to Substack + follow on LinkedIn</div>
+      <div class="page-sections">
+        Hero → Positioning statement + CTA<br>
+        Brief About strip (3 sentences max)<br>
+        Five pillars grid<br>
+        Latest 3 writing pieces<br>
+        Newsletter CTA block<br>
+        Footer with all links
+      </div>
+    </div>
+    <div class="page-card">
+      <div class="page-name">/about  About</div>
+      <div class="page-goal">Goal: Build trust — convert visitor into subscriber</div>
+      <div class="page-sections">
+        Story block (law, ops, BD context)<br>
+        Work timeline (chronological)<br>
+        What you're building now<br>
+        Personal non-negotiables (optional)<br>
+        Soft CTA → Substack
+      </div>
+    </div>
+    <div class="page-card">
+      <div class="page-name">/writing  Writing</div>
+      <div class="page-goal">Goal: Demonstrate intellectual output, grow subscribers</div>
+      <div class="page-sections">
+        Blog post grid (filterable by pillar)<br>
+        Substack embed / link block<br>
+        Search (optional, Phase 2)<br>
+        Email capture CTA at bottom
+      </div>
+    </div>
+    <div class="page-card">
+      <div class="page-name">/work  Work</div>
+      <div class="page-goal">Goal: Signal professional credibility, generate agency inquiries</div>
+      <div class="page-sections">
+        Professional positioning<br>
+        Work history timeline<br>
+        Agency services placeholder<br>
+        Contact/enquiry CTA
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:40px;">CRO Principles Applied</h3>
+  <div class="rule-list">
+    <div class="rule-item do">
+      <svg class="rule-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#5DBF88" stroke-width="1.2"/><path d="M6 10l3 3 5-5" stroke="#5DBF88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="rule-text">Hero section communicates: What it is, Who it's for, Why it matters, and What to do next — in under 5 seconds, no scrolling required.</span>
+    </div>
+    <div class="rule-item do">
+      <svg class="rule-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#5DBF88" stroke-width="1.2"/><path d="M6 10l3 3 5-5" stroke="#5DBF88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="rule-text">CTA appears in navigation (persistent), hero, and repeated every 600–900px of content. CTA copy: verb + outcome. "Read the Analysis" not "Click Here."</span>
+    </div>
+    <div class="rule-item do">
+      <svg class="rule-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#5DBF88" stroke-width="1.2"/><path d="M6 10l3 3 5-5" stroke="#5DBF88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="rule-text">Specificity rule: "47 clients" not "many clients." "3 years in operations" not "years of experience." Replace every vague claim with a specific one.</span>
+    </div>
+    <div class="rule-item">
+      <svg class="rule-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#E07070" stroke-width="1.2"/><path d="M7 7l6 6M13 7l-6 6" stroke="#E07070" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span class="rule-text">No outbound links in post body — they go in the first comment (LinkedIn rule applied to website: no navigation away from conversion path).</span>
+    </div>
+    <div class="rule-item">
+      <svg class="rule-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#E07070" stroke-width="1.2"/><path d="M7 7l6 6M13 7l-6 6" stroke="#E07070" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span class="rule-text">Contact form: name + email only. Every additional field is friction that costs you conversions you will never recover.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 10. TECH STACK ─────────────────────────────────────── -->
+<section id="tech">
+  <span class="eyebrow">10 — Tech Stack</span>
+  <h2>Google Antigravity Stack</h2>
+
+  <p>Every tool in this stack is a real, production-available Google product. Zero budget compatible. Scales from zero traffic to growth without a plan change.</p>
+
+  <h3 style="margin-bottom:24px;">Layer Decisions</h3>
+
+  <div class="stack-layer">
+    <div class="stack-layer-name">IDE / Environment</div>
+    <div class="stack-layer-desc">Google Antigravity (Project IDX) at idx.google.com — browser-based Next.js workspace with Gemini Code Assist built in. Zero local setup. Auto-connects to Firebase and Google Cloud. This is your primary development environment.</div>
+    <div class="stack-layer-tool">idx.google.com</div>
+  </div>
+  <div class="stack-layer">
+    <div class="stack-layer-name">Frontend Framework</div>
+    <div class="stack-layer-desc">Next.js 14+ App Router with TypeScript. Static site generation (SSG) for all pages. React Server Components by default. 'use client' only where interactivity requires it. Hosted on Vercel (Antigravity deploys there natively).</div>
+    <div class="stack-layer-tool">Next.js 14 + TypeScript</div>
+  </div>
+  <div class="stack-layer">
+    <div class="stack-layer-name">Styling</div>
+    <div class="stack-layer-desc">Tailwind CSS with custom config extending the brand design tokens (colors, spacing, fonts). All brand values in tailwind.config.ts. CSS custom properties for runtime values (dark mode). Never hardcode hex in component files.</div>
+    <div class="stack-layer-tool">Tailwind CSS</div>
+  </div>
+  <div class="stack-layer">
+    <div class="stack-layer-name">Animation</div>
+    <div class="stack-layer-desc">Framer Motion for scroll-triggered reveals, page transitions, and stagger animations. CSS transitions only for hover states and micro-interactions (faster, no JS overhead). All animations respect prefers-reduced-motion.</div>
+    <div class="stack-layer-tool">Framer Motion + CSS</div>
+  </div>
+  <div class="stack-layer">
+    <div class="stack-layer-name">CMS (Content)</div>
+    <div class="stack-layer-desc">Keystatic CMS — free, open source, Git-based (stores content in your GitHub repo as MDX files). Works natively with Next.js. No database required for blog posts. Admin UI accessible at /keystatic (password-protected). Zero ongoing cost.</div>
+    <div class="stack-layer-tool">Keystatic (Free)</div>
+  </div>
+  <div class="stack-layer">
+    <div class="stack-layer-name">Backend / Forms</div>
+    <div class="stack-layer-desc">Firebase (free Spark plan) — Firestore for contact form submissions. Firebase Authentication if user accounts are ever needed. Firebase Hosting for static asset CDN. Region: asia-south1 (Mumbai — closest to Bangladesh).</div>
+    <div class="stack-layer-tool">Firebase Free Tier</div>
+  </div>
+  <div class="stack-layer">
+    <div class="stack-layer-name">Analytics</div>
+    <div class="stack-layer-desc">Google Analytics 4 — free forever. Connected to Google Search Console for organic search data. Loaded via next/script with strategy='afterInteractive' to never block critical render path. Track: page views, Substack CTA clicks, contact form submits.</div>
+    <div class="stack-layer-tool">GA4 + Search Console</div>
+  </div>
+  <div class="stack-layer">
+    <div class="stack-layer-name">AI Coding Agent</div>
+    <div class="stack-layer-desc">Google Jules (labs.google.com/jules) — autonomous coding agent. Assign GitHub issues for repetitive tasks: component generation, bug fixes, SEO metadata updates. Runs asynchronously, opens PRs. Free during labs phase.</div>
+    <div class="stack-layer-tool">Google Jules</div>
+  </div>
+  <div class="stack-layer">
+    <div class="stack-layer-name">Domain</div>
+    <div class="stack-layer-desc">asfak.com or asfakchowdhury.com (purchase when Skytech role stabilises). Until then: asfak.vercel.app is clean and functional. .com.bd domain via Hostever BD (~$10/year) is an alternative if local BD positioning is the priority.</div>
+    <div class="stack-layer-tool">Vercel → Custom Domain</div>
+  </div>
+
+  <h3 style="margin-top:48px;">Why Keystatic Over FireCMS</h3>
+  <div class="card-grid card-grid-2" style="margin:16px 0;">
+    <div class="card">
+      <h4>Keystatic (Recommended)</h4>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:8px;">
+        <li style="font-size:13px;color:var(--text-secondary);">→ 100% free, open source, no vendor lock-in</li>
+        <li style="font-size:13px;color:var(--text-secondary);">→ Content stored as MDX files in GitHub repo — you own it</li>
+        <li style="font-size:13px;color:var(--text-secondary);">→ Works natively with Next.js App Router</li>
+        <li style="font-size:13px;color:var(--text-secondary);">→ No separate database needed for blog content</li>
+        <li style="font-size:13px;color:var(--text-secondary);">→ Admin UI built in — edit posts at /keystatic</li>
+        <li style="font-size:13px;color:var(--text-secondary);">→ Deploys with the same Vercel pipeline</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>FireCMS (Alternative)</h4>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:8px;">
+        <li style="font-size:13px;color:var(--text-secondary);">→ Free self-hosted, requires Firebase project</li>
+        <li style="font-size:13px;color:var(--text-secondary);">→ Content stored in Firestore (more complex setup)</li>
+        <li style="font-size:13px;color:var(--text-secondary);">→ Better fit if you need a full database CMS</li>
+        <li style="font-size:13px;color:var(--text-secondary);">→ Requires more Firebase configuration</li>
+        <li style="font-size:13px;color:var(--text-secondary);">→ Use this if/when the agency site needs a full product catalog or client portal</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin-top:40px;">Environment Setup Order</h3>
+  <div class="card" style="margin-top:16px;">
+    <ol style="list-style:none;display:flex;flex-direction:column;gap:0;counter-reset:steps;">
+      <li style="display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);align-items:baseline;">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--accent);min-width:28px;">01</span>
+        <span style="font-size:14px;color:var(--text-secondary);">Open Google Antigravity (idx.google.com) → New Workspace → Next.js template → TypeScript</span>
+      </li>
+      <li style="display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);align-items:baseline;">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--accent);min-width:28px;">02</span>
+        <span style="font-size:14px;color:var(--text-secondary);">Run: <code style="font-family:var(--font-mono);font-size:12px;">npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir</code></span>
+      </li>
+      <li style="display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);align-items:baseline;">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--accent);min-width:28px;">03</span>
+        <span style="font-size:14px;color:var(--text-secondary);">Install: <code style="font-family:var(--font-mono);font-size:12px;">npm install framer-motion @keystatic/core @keystatic/next lucide-react clsx</code></span>
+      </li>
+      <li style="display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);align-items:baseline;">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--accent);min-width:28px;">04</span>
+        <span style="font-size:14px;color:var(--text-secondary);">Configure tailwind.config.ts with brand tokens: all CSS variables from this document as Tailwind theme extensions</span>
+      </li>
+      <li style="display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);align-items:baseline;">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--accent);min-width:28px;">05</span>
+        <span style="font-size:14px;color:var(--text-secondary);">Create Firebase project at console.firebase.google.com → Enable Firestore (asia-south1) + Hosting</span>
+      </li>
+      <li style="display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);align-items:baseline;">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--accent);min-width:28px;">06</span>
+        <span style="font-size:14px;color:var(--text-secondary);">Set up GitHub repository → Connect Vercel for automated deployment on push to main</span>
+      </li>
+      <li style="display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);align-items:baseline;">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--accent);min-width:28px;">07</span>
+        <span style="font-size:14px;color:var(--text-secondary);">Configure Keystatic → <code style="font-family:var(--font-mono);font-size:12px;">keystatic.config.ts</code> defining collections for: posts, writing pillar, metadata</span>
+      </li>
+      <li style="display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);align-items:baseline;">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--accent);min-width:28px;">08</span>
+        <span style="font-size:14px;color:var(--text-secondary);">Install GA4 via next/script → set up Search Console property → verify domain ownership</span>
+      </li>
+      <li style="display:flex;gap:16px;padding:14px 0;align-items:baseline;">
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--accent);min-width:28px;">09</span>
+        <span style="font-size:14px;color:var(--text-secondary);">Run Lighthouse audit: Performance 90+, Accessibility 95+, SEO 95+ before any public announcement</span>
+      </li>
+    </ol>
+  </div>
+
+  <div class="callout" style="margin-top:32px;">
+    <p><strong>Zero-cost stack summary:</strong> Google Antigravity (free) + Next.js (free/OSS) + Vercel free tier (hobby plan, 100GB bandwidth) + Firebase free Spark plan (1 GiB Firestore, 10 GB storage) + Keystatic (free/OSS) + GA4 (free forever) + Google Jules (free labs access) = full production stack at £0/month.</p>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────── -->
+<div style="padding:48px 0;text-align:center;border-top:1px solid var(--border);margin-top:40px;">
+  <svg viewBox="0 0 40 40" width="32" height="32" fill="none" style="display:block;margin:0 auto 16px;opacity:0.4;">
+    <circle cx="20" cy="20" r="19" stroke="#C49234" stroke-width="1.2"/>
+    <circle cx="20" cy="20" r="12" stroke="#C49234" stroke-width="0.8" stroke-dasharray="2 3"/>
+    <circle cx="20" cy="20" r="5"  fill="#C49234" fill-opacity="0.3" stroke="#C49234" stroke-width="1"/>
+    <line x1="20" y1="0"  x2="20" y2="6"  stroke="#C49234" stroke-width="1"/>
+    <line x1="20" y1="34" x2="20" y2="40" stroke="#C49234" stroke-width="1"/>
+    <line x1="0"  y1="20" x2="6"  y2="20" stroke="#C49234" stroke-width="1"/>
+    <line x1="34" y1="20" x2="40" y2="20" stroke="#C49234" stroke-width="1"/>
+  </svg>
+  <p style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;color:var(--text-tertiary);text-transform:uppercase;max-width:none;margin:0;">Brand Guidelines v1.0 · Asfak Ahamed Chowdhury · April 2026<br>This document is the operational reference for all design, copy, and technical decisions.</p>
+</div>
+
+</div><!-- end page-wrapper -->
+</body>
+</html>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <rect width="180" height="180" rx="40" fill="#0C0B09"/>
+  <!-- Outer ring -->
+  <circle cx="90" cy="90" r="75" stroke="#C49234" stroke-width="5" fill="none"/>
+  <!-- Middle dashed ring -->
+  <circle cx="90" cy="90" r="48" stroke="#C49234" stroke-width="2.5" fill="none" stroke-dasharray="6 9"/>
+  <!-- Inner filled circle -->
+  <circle cx="90" cy="90" r="16" fill="#C49234" fill-opacity="0.25" stroke="#C49234" stroke-width="3"/>
+  <!-- Center dot -->
+  <circle cx="90" cy="90" r="5" fill="#C49234"/>
+  <!-- Crosshair ticks (N/S/E/W) -->
+  <line x1="90" y1="2"   x2="90" y2="20"  stroke="#C49234" stroke-width="4" stroke-linecap="round"/>
+  <line x1="90" y1="160" x2="90" y2="178" stroke="#C49234" stroke-width="4" stroke-linecap="round"/>
+  <line x1="2"  y1="90"  x2="20" y2="90"  stroke="#C49234" stroke-width="4" stroke-linecap="round"/>
+  <line x1="160" y1="90" x2="178" y2="90" stroke="#C49234" stroke-width="4" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #141210;
+  --surface: #1c1917;
+  --surface-2: #252220;
+  --border: rgba(240, 232, 216, 0.08);
+  --border-strong: rgba(240, 232, 216, 0.14);
+  --text-primary: #F0E8D8;
+  --text-secondary: rgba(240, 232, 216, 0.72);
+  --text-tertiary: rgba(240, 232, 216, 0.45);
+  --accent: #D97757;
+  --accent-muted: rgba(217, 119, 87, 0.12);
+  --accent-hover: #E8957A;
+  
+  --semantic-success: #788C5D;
+  --semantic-warn: #B05B1A;
+  --semantic-error: #A32A2A;
+  --semantic-info: #6A9BCC;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Easing functions */
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@theme {
+  --color-brand-bg: var(--bg);
+  --color-brand-surface: var(--surface);
+  --color-brand-surface-2: var(--surface-2);
+  --color-brand-border: var(--border);
+  --color-brand-border-strong: var(--border-strong);
+  --color-brand-text-primary: var(--text-primary);
+  --color-brand-text-secondary: var(--text-secondary);
+  --color-brand-text-tertiary: var(--text-tertiary);
+  --color-brand-accent: var(--accent);
+  --color-brand-accent-muted: var(--accent-muted);
+  --color-brand-accent-hover: var(--accent-hover);
+
+  --color-success: var(--semantic-success);
+  --color-warn: var(--semantic-warn);
+  --color-error: var(--semantic-error);
+  --color-info: var(--semantic-info);
+
+  --radius-brand-sm: var(--radius-sm);
+  --radius-brand-md: var(--radius-md);
+  --radius-brand-lg: var(--radius-lg);
+
+  --font-display: var(--font-lora);
+  --font-body: var(--font-syne);
+  --font-mono: var(--font-ibm-plex-mono);
+
+  --ease-brand-out: var(--ease-out);
+  --ease-brand-in: var(--ease-in);
+  --ease-brand-in-out: var(--ease-in-out);
+}
+
+/* Base styles */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* Grain overlay - Adjusted opacity to 0.028 as per Anthropic specs */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.028;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.08;
+  }
+
+  h1 { font-size: clamp(52px, 7vw, 80px); letter-spacing: -0.025em; }
+  h2 { font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.02em; }
+  h3 { font-size: 28px; letter-spacing: -0.015em; }
+  h4 { font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); }
+
+  p {
+    color: var(--text-secondary);
+    max-width: 68ch;
+    line-height: 1.72;
+  }
+}
+
+@layer utilities {
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+  }
+}
