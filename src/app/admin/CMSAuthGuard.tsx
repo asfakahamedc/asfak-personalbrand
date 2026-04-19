@@ -22,7 +22,7 @@ export const CMSAuthGuard = ({ children }: { children: React.ReactNode }) => {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     // Static credentials for basic protection of the CMS
-    if (username === "asfakahamedc" && password === "ASDF;LKJ_2@26#V3") {
+    if (username === process.env.NEXT_PUBLIC_ADMIN_USER && password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
       sessionStorage.setItem("keystatic_admin_auth", "true");
       setIsAuthenticated(true);
       setError("");

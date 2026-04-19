@@ -18,7 +18,7 @@ export const Footer = () => {
               <p className="text-brand-text-secondary text-sm">Let’s architect a trajectory that lasts.</p>
             </div>
           </div>
-          
+
           <div>
             <h4 className="mb-6">Navigation</h4>
             <ul className="flex flex-col gap-4">
@@ -28,7 +28,7 @@ export const Footer = () => {
               <li><Link href="/work" className="text-sm text-brand-text-tertiary hover:text-brand-accent transition-colors">Work</Link></li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="mb-6">Social</h4>
             <ul className="flex flex-col gap-4">
@@ -39,7 +39,7 @@ export const Footer = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="pt-8 border-t border-brand-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-mono text-[10px] uppercase tracking-wider text-brand-text-tertiary">
             © {new Date().getFullYear()} · Asfak Ahamed Chowdhury · v1.0

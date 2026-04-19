@@ -56,7 +56,7 @@ export const ContactForm = () => {
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             />
           </div>
-          
+
           <div className="space-y-1.5">
             <label htmlFor="email" className="font-mono text-[10px] text-brand-text-tertiary uppercase tracking-wider">
               Email [Communication]
@@ -86,7 +86,7 @@ export const ContactForm = () => {
               onChange={(e) => setFormData({ ...formData, scope: e.target.value })}
             />
           </div>
-          
+
           <div className="space-y-1.5">
             <label htmlFor="goal" className="font-mono text-[10px] text-brand-text-tertiary uppercase tracking-wider">
               Long-term Goal [Context]
@@ -101,7 +101,7 @@ export const ContactForm = () => {
               onChange={(e) => setFormData({ ...formData, goal: e.target.value })}
             />
           </div>
-          
+
           <Button
             type="submit"
             size="lg"
@@ -110,7 +110,7 @@ export const ContactForm = () => {
           >
             {status === "submitting" ? "Executing..." : "Initiate Protocol →"}
           </Button>
-          
+
           {status === "error" && (
             <p className="text-xs text-error font-mono text-center">
               System failure during transmission. Please try again or email directly.

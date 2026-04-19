@@ -12,7 +12,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant = "primary", size = "md", asChild = false, className, children, ...props }, ref) => {
     const Component = asChild ? Slot : "button";
-    
+
     const variants = {
       primary: "bg-brand-accent text-brand-bg hover:bg-brand-accent-hover",
       ghost: "bg-transparent text-brand-text-primary border border-brand-border-strong hover:border-brand-accent hover:text-brand-accent hover:bg-brand-accent-muted",

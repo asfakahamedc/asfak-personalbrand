@@ -1,11 +1,13 @@
 import { config, fields, collection } from "@keystatic/core";
 
 export default config({
-  storage: process.env.NODE_ENV === 'production'
-    ? { 
-        kind: 'github', 
-        repo: 'asfakahamedc/asfak-personalbrand',
-        mergeStrategy: 'squash'
+  storage: process.env.NODE_ENV === 'production' &&
+    process.env.KEYSTATIC_GITHUB_CLIENT_ID &&
+    process.env.KEYSTATIC_GITHUB_CLIENT_SECRET &&
+    process.env.KEYSTATIC_SECRET
+    ? {
+        kind: 'github',
+        repo: 'asfakahamedc/asfak-personalbrand'
       }
     : { kind: 'local' },
   collections: {
@@ -32,7 +34,7 @@ export default config({
         content: fields.markdoc({
           label: "Content",
           options: {
-            images: {
+            image: {
               directory: 'public/content/writing',
               publicPath: '/content/writing/',
             },
@@ -43,6 +45,5 @@ export default config({
   },
   ui: {
     brand: { name: "Lens Authority" },
-    publicPath: "/admin",
   },
 });

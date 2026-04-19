@@ -14,7 +14,7 @@ export const Navbar = () => {
             <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-brand-accent">Ahamed Chowdhury</span>
           </div>
         </Link>
-        
+
         <div className="hidden md:flex items-center gap-8">
           <Link href="/about" className="text-sm font-body text-brand-text-secondary hover:text-brand-accent transition-colors">
             About

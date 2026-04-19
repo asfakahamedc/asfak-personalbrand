@@ -42,7 +42,7 @@ export default function WorkPage() {
             blueprint executed entirely within the Google AI Ecosystem.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Card className="hover:border-brand-accent">
             <h4 className="font-mono text-brand-accent text-xs mb-2 uppercase tracking-widest">Phase 0</h4>
@@ -144,7 +144,7 @@ export default function WorkPage() {
               </li>
             </ul>
           </div>
-          
+
           <div>
             <h2 className="mb-8 font-display text-3xl">03. The Conversion Audit (CRO)</h2>
             <p className="text-brand-text-secondary mb-8">
@@ -186,7 +186,7 @@ export default function WorkPage() {
             to ensure continued trajectory dominance.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="border border-brand-border p-6 rounded-brand-sm">
             <h4 className="text-brand-accent font-mono text-xs uppercase tracking-widest mb-2">Weekly</h4>

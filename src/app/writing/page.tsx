@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default async function WritingPage() {
   const posts = await reader.collections.posts.all();
-  
+
   // Sort posts by date descending, moving null dates to the end
   const sortedPosts = posts.sort((a, b) => {
     const timeA = a.entry.publishedAt ? new Date(a.entry.publishedAt).getTime() : 0;
